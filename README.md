@@ -1,20 +1,20 @@
 # 🤖 AutoNums — Autonomous AI Job Application Agent
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)](https://python.org)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.35-red?style=for-the-badge&logo=streamlit)](https://streamlit.io)
-[![LangChain](https://img.shields.io/badge/LangChain-0.2-yellow?style=for-the-badge)](https://langchain.com)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-black?style=for-the-badge&logo=openai)](https://openai.com)
-[![Selenium](https://img.shields.io/badge/Selenium-4.x-darkgreen?style=for-the-badge&logo=selenium)](https://selenium.dev)
+[![LangChain](https://img.shields.io/badge/LangChain-0.2-yellow?style=for-the-badge)](https://langchain.com)
 
-*An autonomous multi-agent AI system that searches job listings, tailors resumes, writes cover letters, and applies to jobs — all on your behalf.*
+*An autonomous AI agent that searches job listings, tailors resumes, writes cover letters, and tracks applications — all on your behalf.*
 
 ---
 
 ## 📌 Table of Contents
 
 - [Project Overview](#-project-overview)
-- [Multi-Agent Architecture](#-multi-agent-architecture)
+- [Agent Architecture](#-agent-architecture)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [Setup & Installation](#-setup--installation)
@@ -30,59 +30,51 @@
 **AutoNums** is an intelligent job application assistant that automates the entire job-hunting pipeline:
 
 1. Accepts your **profile, skills, and job preferences** as input
-2. Automatically **searches job listings** from LinkedIn, Indeed, and Naukri
-3. **Filters and ranks** jobs based on your profile match score
-4. **Tailors your resume** for each job using AI
-5. **Generates a custom cover letter** per application
-6. **Auto-fills and submits** applications via browser automation
-7. **Tracks all applications** in a live dashboard with status updates
+2. Automatically **searches job listings** from multiple platforms
+3. **Tailors your resume** for each job using AI
+4. **Tracks all applications** in a live dashboard with status updates
+5. Allows **chat-based interaction** to query your job search progress
 
 ---
 
-## 🤖 Multi-Agent Architecture
+## 🤖 Agent Architecture
 
 ```
-User Profile + Job Preferences
-           │
-           ▼
-┌──────────────────────┐
-│  Coordinator Agent   │  ← Orchestrates the entire pipeline
-└──────────┬───────────┘
-           │
-    ┌──────▼───────┐
-    │  Search Agent │  ← Scrapes LinkedIn, Indeed, Naukri
-    └──────┬───────┘
-           │
-   ┌───────▼────────┐
-   │  Ranker Agent  │  ← Scores jobs by profile match %
-   └───────┬────────┘
-           │
-   ┌───────▼──────────┐
-   │  Resume Agent    │  ← Tailors resume per job description
-   └───────┬──────────┘
-           │
-   ┌───────▼──────────────┐
-   │  Cover Letter Agent  │  ← Writes personalized cover letters
-   └───────┬──────────────┘
-           │
-   ┌───────▼──────────────┐
-   │  Application Agent   │  ← Auto-fills & submits applications
-   └───────┬──────────────┘
-           │
-   ┌───────▼──────────┐
-   │  Tracker Agent   │  ← Logs status: Applied / Viewed / Replied
-   └──────────────────┘
+User Input (Profile + Job Preferences)
+              │
+              ▼
+       ┌─────────────┐
+       │  agent.py   │  ← Main AI Agent (Orchestrator)
+       └──────┬──────┘
+              │
+    ┌─────────▼──────────┐
+    │     src/ Tools     │
+    ├────────────────────┤
+    │  job_tools.py      │  ← Job search & filtering
+    │  resume_tools.py   │  ← Resume parsing & tailoring
+    │  tracker_tools.py  │  ← Application status tracking
+    │  communication_    │  ← Email & notification tools
+    │  tools.py          │
+    └────────────────────┘
+              │
+    ┌─────────▼──────────┐
+    │     app.py         │  ← FastAPI Backend Server
+    └─────────┬──────────┘
+              │
+    ┌─────────▼──────────┐
+    │    ui/ Frontend    │  ← React + Vite UI
+    └────────────────────┘
 ```
 
-| Agent | Responsibility |
-|-------|---------------|
-| **Search Agent** | Fetches & deduplicates job listings from multiple platforms |
-| **Ranker Agent** | Scores each job on skill match, experience, location, and salary |
-| **Resume Agent** | Rewrites resume sections to align with each job description |
-| **Cover Letter Agent** | Generates personalized, role-specific cover letters |
-| **Application Agent** | Uses browser automation to fill and submit job forms |
-| **Tracker Agent** | Maintains a live dashboard of all applications and their status |
-| **Coordinator Agent** | Orchestrates all 6 stages in the correct sequence |
+| Module | Responsibility |
+|--------|---------------|
+| **agent.py** | Main AI agent — orchestrates the full pipeline |
+| **job_tools.py** | Searches, filters, and ranks job listings |
+| **resume_tools.py** | Parses resume and tailors it per job description |
+| **tracker_tools.py** | Tracks application status (Applied / Viewed / Replied) |
+| **communication_tools.py** | Handles email drafting and notifications |
+| **app.py** | FastAPI backend — exposes REST API endpoints |
+| **test_agent.py** | Unit tests for agent and tools |
 
 ---
 
@@ -91,14 +83,12 @@ User Profile + Job Preferences
 | Layer | Technology |
 |-------|-----------|
 | **Backend** | Python 3.10, FastAPI, Uvicorn |
-| **AI / LLM** | OpenAI GPT-4o-mini via LangChain |
-| **Browser Automation** | Selenium, Playwright |
-| **Job Scraping** | BeautifulSoup4, Requests, LinkedIn API |
-| **Resume Parsing** | PyPDF2, python-docx |
-| **Frontend** | Streamlit |
-| **Database** | SQLite (application tracker) |
+| **AI / LLM** | OpenAI GPT-4o-mini, LangChain |
+| **Frontend** | React 18, Vite, JavaScript |
+| **UI Components** | ChatInput, ChatWindow, Sidebar, PDFModal, ReportModal, Header |
+| **Resume Parsing** | PyPDF2 / python-docx |
 | **Env Management** | python-dotenv |
-| **Resilience** | Tenacity (retry with exponential backoff) |
+| **Package Manager** | npm (frontend), pip (backend) |
 
 ---
 
@@ -107,42 +97,44 @@ User Profile + Job Preferences
 ```
 autonums-job-application/
 │
-├── backend/
-│   ├── main.py                          # FastAPI app entry point
-│   ├── config.py                        # All env vars & constants
-│   │
-│   ├── agents/
-│   │   ├── search_agent.py              # Multi-platform job search & dedup
-│   │   ├── ranker_agent.py              # Job scoring & profile matching
-│   │   ├── resume_agent.py              # AI-powered resume tailoring
-│   │   ├── cover_letter_agent.py        # Personalized cover letter writer
-│   │   ├── application_agent.py         # Browser automation & form-filling
-│   │   ├── tracker_agent.py             # Application status tracking
-│   │   └── coordinator_agent.py         # Pipeline orchestrator
-│   │
-│   ├── services/
-│   │   ├── linkedin_service.py          # LinkedIn scraper / API client
-│   │   ├── indeed_service.py            # Indeed job listing client
-│   │   ├── naukri_service.py            # Naukri.com scraper
-│   │   ├── resume_parser.py             # PDF/DOCX resume text extraction
-│   │   ├── browser_driver.py            # Selenium/Playwright driver setup
-│   │   └── db_service.py                # SQLite tracker database
-│   │
-│   └── routes/
-│       ├── jobs_route.py                # POST /api/jobs/search
-│       ├── apply_route.py               # POST /api/jobs/apply
-│       └── tracker_route.py             # GET  /api/tracker
+├── src/                              # Python backend tools
+│   ├── __init__.py
+│   ├── communication_tools.py        # Email & notification handling
+│   ├── job_tools.py                  # Job search & ranking logic
+│   ├── resume_tools.py               # Resume parsing & AI tailoring
+│   └── tracker_tools.py             # Application tracker logic
 │
-├── frontend/
-│   └── streamlit_app.py                 # 4-tab Streamlit UI
+├── ui/                               # React + Vite frontend
+│   ├── dist/                         # Production build output
+│   ├── public/                       # Static assets
+│   ├── src/
+│   │   ├── assets/                   # Images, icons
+│   │   ├── components/
+│   │   │   ├── ChatInput.jsx         # Chat message input bar
+│   │   │   ├── ChatWindow.jsx        # Chat conversation display
+│   │   │   ├── Header.jsx            # Top navigation header
+│   │   │   ├── PDFModal.jsx          # Resume/PDF preview modal
+│   │   │   ├── ReportModal.jsx       # Application report modal
+│   │   │   └── Sidebar.jsx           # Navigation sidebar
+│   │   ├── api.js                    # API calls to backend
+│   │   ├── App.css                   # Global app styles
+│   │   ├── App.jsx                   # Root React component
+│   │   ├── index.css                 # Base CSS styles
+│   │   └── main.jsx                  # React entry point
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   └── eslint.config.js
 │
-├── data/
-│   ├── resumes/                         # Uploaded & tailored resume files
-│   ├── cover_letters/                   # Generated cover letters
-│   └── tracker.db                       # SQLite application tracker (auto-created)
+├── data/                             # Job data & stored results
+├── frontend/                         # Additional frontend assets
+├── outputs/                          # Generated resumes & cover letters
 │
-├── requirements.txt
-├── .env.example
+├── agent.py                          # Main AI agent entry point
+├── app.py                            # FastAPI backend server
+├── test_agent.py                     # Agent unit tests
+├── .env                              # Environment variables
+├── requirements.txt                  # Python dependencies
 └── README.md
 ```
 
@@ -152,9 +144,9 @@ autonums-job-application/
 
 ### Prerequisites
 
-- **Python 3.10** (strictly required — use `py -3.10` on Windows)
-- An **OpenAI API key** → [Get one here](https://platform.openai.com/api-keys) *(or use Groq API — it's free)*
-- **Google Chrome** browser installed (for Selenium automation)
+- **Python 3.10+**
+- **Node.js 18+** and **npm**
+- An **OpenAI API key** → [Get one here](https://platform.openai.com/api-keys)
 - Git
 
 ---
@@ -168,134 +160,114 @@ cd autonums-job-application
 
 ---
 
-### Step 2 — Create a Virtual Environment (Python 3.10)
+### Step 2 — Backend Setup (Python)
 
-> ⚠️ **Important:** This project requires Python 3.10 specifically.
+**Create virtual environment:**
 
-**Windows:**
 ```bash
-py -3.10 -m venv venv
+python -m venv venv
 ```
 
-**macOS / Linux:**
-```bash
-python3.10 -m venv venv
-```
+**Activate it:**
 
----
-
-### Step 3 — Activate the Virtual Environment
-
-**Windows:**
+Windows:
 ```bash
 venv\Scripts\activate
 ```
 
-**macOS / Linux:**
+macOS / Linux:
 ```bash
 source venv/bin/activate
 ```
 
-You should see `(venv)` in your terminal prompt.
-
----
-
-### Step 4 — Install Dependencies
+**Install dependencies:**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> First-time setup will install Selenium drivers automatically via `webdriver-manager`.
+---
+
+### Step 3 — Frontend Setup (React + Vite)
+
+```bash
+cd ui
+npm install
+```
 
 ---
 
-### Step 5 — Configure Environment Variables
+### Step 4 — Configure Environment Variables
 
 ```bash
 cp .env.example .env
 ```
 
-Open `.env` and fill in your keys:
+Open `.env` and fill in:
 
 ```env
 OPENAI_API_KEY=sk-your-openai-api-key-here
-LINKEDIN_EMAIL=your-linkedin-email@example.com
-LINKEDIN_PASSWORD=your-linkedin-password
-BACKEND_URL=http://localhost:8000
-DB_PATH=./data/tracker.db
-MAX_JOBS_PER_SOURCE=10
-HEADLESS_BROWSER=true
 ```
-
-> 💡 Set `HEADLESS_BROWSER=false` if you want to watch the browser automation in real time.
 
 ---
 
 ## 🚀 Running the Project
 
-Open **two separate terminals**, both with the virtual environment activated.
+Open **two separate terminals**.
 
-### Terminal 1 — Run the Backend (FastAPI)
+### Terminal 1 — Run the Backend
 
 ```bash
 venv\Scripts\activate
-
-cd backend
-python main.py
+python app.py
 ```
 
-Backend will start at → `http://localhost:8000`  
-API docs available at → `http://localhost:8000/docs`
+Backend starts at → `http://localhost:8000`
 
 ---
 
-### Terminal 2 — Run the Frontend (Streamlit)
+### Terminal 2 — Run the Frontend
 
 ```bash
-venv\Scripts\activate
-
-cd frontend
-streamlit run streamlit_app.py
+cd ui
+npm run dev
 ```
 
-Frontend will open at → `http://localhost:8501`
+Frontend opens at → `http://localhost:5173`
 
 ---
 
 ## ✨ Features
 
-- 🔍 **Multi-platform job search** across LinkedIn, Indeed, and Naukri simultaneously
-- 🎯 **AI-powered job ranking** — scores each job by your profile match percentage
-- 📄 **Smart resume tailoring** — rewrites your resume to match each job description
-- ✉️ **Custom cover letter generation** — personalized, professional, role-specific
-- 🤖 **Automated application submission** — fills and submits forms via browser automation
-- 📊 **Live application tracker dashboard** — Applied / Viewed / Interview / Rejected status
-- 💾 **Persistent SQLite database** — your application history is saved across sessions
-- 📥 **Download tailored resumes & cover letters** as `.pdf` or `.docx` files
+- 💬 **Chat-based interface** — interact with the AI agent via ChatWindow & ChatInput
+- 🔍 **Automated job search** — finds relevant jobs based on your profile
+- 📄 **AI resume tailoring** — customizes your resume per job description
+- 📊 **Application tracker** — tracks Applied / Viewed / Replied status
+- 📁 **PDF preview** — view resumes and reports directly in the browser via PDFModal
+- 📋 **Report generation** — detailed application reports via ReportModal
+- 🔔 **Communication tools** — email drafting and notification support
 
 ---
 
 ## 🎯 Example Usage
 
-### Job Search Preferences to Try
+### Job Preferences to Try
 
 ```
-Software Engineer with 2 years Python experience, remote, Bangalore
-Data Analyst, fresher, open to relocation, ₹4-8 LPA
-Full Stack Developer, React + Node.js, Hyderabad or remote
-ML Engineer, NLP specialization, 3+ years, any metro city
-DevOps Engineer, AWS + Kubernetes, Pune, ₹10-15 LPA
+Software Engineer, Python, 2 years experience, remote
+Data Analyst, fresher, Bangalore, ₹4-8 LPA
+Full Stack Developer, React + Node.js, Hyderabad
+ML Engineer, NLP, 3+ years, any metro city
 ```
 
-### Example Tracker Questions (in the dashboard)
+### Chat Questions to Ask the Agent
 
 ```
 How many jobs have I applied to this week?
-Which applications are still awaiting a response?
-What is my average match score across applied jobs?
-Which companies have viewed my profile?
-How many interviews have been scheduled?
+Show me jobs matching my Python skills
+Generate a tailored resume for this job description
+What is the status of my recent applications?
+Draft a cover letter for this role
 ```
 
 ---
@@ -321,4 +293,4 @@ This project is developed as part of an academic group project at **C.V. Raman G
 
 ---
 
-*Built with ❤️ by the team — powered by LangChain, OpenAI, Selenium, and Streamlit*
+*Built with ❤️ by the team — powered by LangChain, OpenAI, React, and FastAPI*
