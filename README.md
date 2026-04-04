@@ -1,4 +1,4 @@
-# 🤖 AutoNums — Autonomous AI Job Application Agent
+# 🤖 AutoNomous — Autonomous AI Job Application Agent
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)](https://python.org)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
@@ -27,7 +27,7 @@
 
 ## 🧠 Project Overview
 
-**AutoNums** is an intelligent job application assistant that automates the entire job-hunting pipeline:
+**AutoNomous** is an intelligent job application assistant that automates the entire job-hunting pipeline:
 
 1. Accepts your **profile, skills, and job preferences** as input
 2. Automatically **searches job listings** from multiple platforms
@@ -154,7 +154,7 @@ autonums-job-application/
 ### Step 1 — Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/autonums-job-application.git
+git clone https://github.com/Smrutiranjan581/autonums-job-application.git
 cd autonums-job-application
 ```
 
@@ -274,16 +274,16 @@ Draft a cover letter for this role
 
 ## 👥 Team
 
-| Name | GitHub |
-|------|--------|
-| Jan Adnan Farooq | [@adnaan-dev](https://github.com/adnaan-dev) |
-| Abhishek | [@Abhishek-134](https://github.com/Abhishek-134) |
-| Akeem Ali | [@Akeem786](https://github.com/Akeem786) |
-| Mohammad Aakib Bhat | [@bhataakib02](https://github.com/bhataakib02) |
-| Mayank Mihir | [@mayankkmk77](https://github.com/mayankkmk77) |
-| Saqib Mokhtar | [@saqibmokhtar884](https://github.com/saqibmokhtar884) |
-| Satakshik Chaurasia | [@satakshik-chaurasia](https://github.com/satakshik-chaurasia) |
-| Sradha Ram | [@Sradha2474](https://github.com/Sradha2474) |
+| Name |
+|------|
+| Smrutiranjan Nayak |
+| Mangala Kiran Prusty |
+| Dibyajeet Pradhan | 
+| Rahul Mohanty |
+| Shaikh Zubair Akhtar | 
+| Rasmita Sahoo |
+| Seetal Jena | 
+| Rohan Roy | 
 
 ---
 
