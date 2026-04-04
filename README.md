@@ -233,7 +233,7 @@ cd ui
 npm run dev
 ```
 
-Frontend opens at → `http://localhost:5173`
+Frontend opens at → `http://localhost:3000/`
 
 ---
 
