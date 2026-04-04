@@ -1,0 +1,392 @@
+Traceback (most recent call last):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 969, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\manga\OneDrive\Desktop\job_application aget\app.py", line 60, in chat
+    response = agent.invoke(
+               ^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3254, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5034, in invoke
+    return self._call_with_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 2092, in _call_with_config
+    context.run(
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\config.py", line 430, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4902, in _invoke
+    output = output.invoke(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\chains\base.py", line 167, in invoke
+    raise e
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\chains\base.py", line 157, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 1620, in _call
+    next_step_output = self._take_next_step(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 1326, in _take_next_step
+    [
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 1354, in _iter_next_step
+    output = self._action_agent.plan(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 577, in plan
+    for chunk in self.runnable.stream(inputs, config={"callbacks": callbacks}):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3658, in stream
+    yield from self.transform(iter([input]), config, **kwargs)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3644, in transform
+    yield from self._transform_stream_with_config(
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 2376, in _transform_stream_with_config
+    chunk: Output = context.run(next, iterator)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3603, in _transform
+    yield from final_pipeline
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1571, in transform
+    for ichunk in input:
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5936, in transform
+    yield from self.bound.transform(
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1589, in transform
+    yield from self.stream(final, config, **kwargs)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\language_models\chat_models.py", line 522, in stream
+    for chunk in self._stream(input_messages, stop=stop, **kwargs):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_openai\chat_models\base.py", line 889, in _stream
+    response = self.client.create(**payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 1001, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+Traceback (most recent call last):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 969, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\manga\OneDrive\Desktop\job_application aget\app.py", line 60, in chat
+    response = agent.invoke(
+               ^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3254, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5034, in invoke
+    return self._call_with_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 2092, in _call_with_config
+    context.run(
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\config.py", line 430, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4902, in _invoke
+    output = output.invoke(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\chains\base.py", line 167, in invoke
+    raise e
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\chains\base.py", line 157, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 1620, in _call
+    next_step_output = self._take_next_step(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 1326, in _take_next_step
+    [
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 1354, in _iter_next_step
+    output = self._action_agent.plan(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 577, in plan
+    for chunk in self.runnable.stream(inputs, config={"callbacks": callbacks}):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3658, in stream
+    yield from self.transform(iter([input]), config, **kwargs)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3644, in transform
+    yield from self._transform_stream_with_config(
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 2376, in _transform_stream_with_config
+    chunk: Output = context.run(next, iterator)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3603, in _transform
+    yield from final_pipeline
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1571, in transform
+    for ichunk in input:
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5936, in transform
+    yield from self.bound.transform(
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1589, in transform
+    yield from self.stream(final, config, **kwargs)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\language_models\chat_models.py", line 522, in stream
+    for chunk in self._stream(input_messages, stop=stop, **kwargs):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_openai\chat_models\base.py", line 889, in _stream
+    response = self.client.create(**payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 1001, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+Traceback (most recent call last):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 969, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\manga\OneDrive\Desktop\job_application aget\app.py", line 60, in chat
+    textColor=colors.HexColor("#888888"),
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3254, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5034, in invoke
+    return self._call_with_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 2092, in _call_with_config
+    context.run(
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\config.py", line 430, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 4902, in _invoke
+    output = output.invoke(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5720, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\chains\base.py", line 167, in invoke
+    raise e
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\chains\base.py", line 157, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 1620, in _call
+    next_step_output = self._take_next_step(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 1326, in _take_next_step
+    [
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 1354, in _iter_next_step
+    output = self._action_agent.plan(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain\agents\agent.py", line 577, in plan
+    for chunk in self.runnable.stream(inputs, config={"callbacks": callbacks}):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3658, in stream
+    yield from self.transform(iter([input]), config, **kwargs)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3644, in transform
+    yield from self._transform_stream_with_config(
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 2376, in _transform_stream_with_config
+    chunk: Output = context.run(next, iterator)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 3603, in _transform
+    yield from final_pipeline
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1571, in transform
+    for ichunk in input:
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 5936, in transform
+    yield from self.bound.transform(
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\runnables\base.py", line 1589, in transform
+    yield from self.stream(final, config, **kwargs)
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_core\language_models\chat_models.py", line 522, in stream
+    for chunk in self._stream(input_messages, stop=stop, **kwargs):
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\langchain_openai\chat_models\base.py", line 889, in _stream
+    response = self.client.create(**payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manga\AppData\Local\Programs\Python\Python312\Lib\site-packages\openai\_base_client.py", line 1001, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
